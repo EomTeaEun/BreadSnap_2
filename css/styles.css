@@ -17,8 +17,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, nav, sectio
 */
 audio, canvas, video {
     display: inline-block;
-    *display: inline;
-    *zoom: 1;
+    display: inline;
+    zoom: 1;
 }
 
 /*
@@ -316,7 +316,7 @@ legend {
     padding: 0;
     border: 0; /* 1 */
     white-space: normal; /* 2 */
-    *margin-left: -7px; /* 3 */
+    margin-left: -7px; /* 3 */
 }
 
 /*
@@ -328,7 +328,7 @@ button, input, select, textarea {
     margin: 0; /* 2 */
     vertical-align: baseline; /* 3 */
     font-size: 100%; /* 1 */
-    *vertical-align: middle; /* 3 */
+    vertical-align: middle; /* 3 */
 }
 
 /*
@@ -352,7 +352,8 @@ button, html input[type="button"], /* 1 */
 input[type="reset"], input[type="submit"] {
     cursor: pointer; /* 3 */
     -webkit-appearance: button; /* 2 */
-    *overflow: visible; /* 4 */
+    appearance: button;
+    overflow: visible; /* 4 */
 }
 
 /*
@@ -371,8 +372,8 @@ button[disabled], input[disabled] {
 input[type="checkbox"], input[type="radio"] {
     box-sizing: border-box; /* 1 */
     padding: 0; /* 2 */
-    *height: 13px; /* 3 */
-    *width: 13px; /* 3 */
+    height: 13px; /* 3 */
+    width: 13px; /* 3 */
 }
 
 /*
@@ -384,7 +385,7 @@ input[type="search"] {
     /* 2 */
     box-sizing: content-box;
     -webkit-appearance: textfield; /* 1 */
-    nowhitespace: afterproperty;
+    appearance: textfield;
 }
 
 /*
@@ -473,11 +474,11 @@ Buttons
     padding: 20px 50px;
     border-radius: 3px;
     background-color: #fff;
-    color: #4b98a9;
+    color: #8b4513;
     font-size: 16px;
 }
 .use-btn:hover, .use-btn:focus {
-    background-color: #73d0da;
+    background-color: #c08c5b;
     color: #fff;
     text-decoration: none;
 }
@@ -490,8 +491,8 @@ Buttons
     font-size: 16px;
 }
 .learn-btn:hover, .download-btn:hover, .learn-btn:focus, .download-btn:focus {
-    border-color: #73d0da;
-    color: #73d0da;
+    border-color: #ffffff;
+    color: #ffffff;
     text-decoration: none;
 }
 .read-more-btn {
@@ -581,14 +582,31 @@ Hero
     position: relative;
     padding: 60px 0 60px 0;
     min-height: 800px;
-    background: rgb(40, 70, 102) url('../img/hero-01.jpg') no-repeat center center;
+    background: rgb(40, 70, 102) url('../img/background.png') no-repeat center center;
     background-size: cover;
     color: #fff;
 }
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.392);
+    z-index: 0;
+    pointer-events: none;
+}
+/* 히어로 내부 콘텐츠는 오버레이 위로 배치 */
+.hero .container { position: relative; z-index: 1; }
+.hero .texture-overlay { z-index: 0; }
 .hero h1 {
     margin: 200px 0 45px 0;
-    font-weight: 300;
+    font-weight: 700;
     font-size: 45px;
+}
+.hero-cta-box {
+    display: inline-block;
+    background: rgba(255,255,255,0.3);
+    padding: 20px 30px;
+    border-radius: 12px;
 }
 .hero h1 span {
     display: inline-block;
@@ -658,7 +676,7 @@ Features Slider
 .features-bg {
     position: relative;
     min-height: 400px;
-    background: url('../img/features-intro-01.jpg') no-repeat center center;
+    background: url('../img/bread1.png') no-repeat center center;
     background-size: cover;
 }
 .features-img {
@@ -667,11 +685,22 @@ Features Slider
     text-align: center;
     line-height: 400px;
 }
+.features-img h2 {
+    display: inline-block;
+    margin: 0;
+    padding: 12px 22px;
+    background: rgba(255, 255, 255, 0.486);
+    color: #976e42;
+    border-radius: 0;
+    font-size: 36px;
+    font-weight: 700;
+    font-family: inherit;
+}
 .features-slider {
     position: relative;
     padding: 11% 100px 10% 100px;
     height: 400px;
-    background-color: #3F6184;
+    background-color: #976e42;
 }
 .features-slider ul {
     margin: 0;
@@ -776,7 +805,7 @@ blockquote .logo-quote {
 Showcase
 ========================================================================== */
 .showcase {
-    background: url('../img/showcase-bg-fixed-01.jpg') no-repeat center center fixed;
+    background: url('../img/background.png') no-repeat center center fixed;
     background-size: cover;
 }
 .showcase h1 {
