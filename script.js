@@ -288,6 +288,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // 범례 관련 로직 제거됨
 
+// 선택된 카테고리( popular | new | special )
+let selectedCategoryType = null;
+
+// 카테고리 버튼 클릭 → 구 선택 창 표시
+document.addEventListener('DOMContentLoaded', function () {
+  const categoryButtons = document.querySelectorAll('.cat-btn');
+  categoryButtons.forEach(btn => {
+    btn.addEventListener('click', function () {
+      selectedCategoryType = this.getAttribute('data-category');
+      showDistrictSelection();
+    });
+  });
+});
+
 // 구 선택 창 표시 함수
 function showDistrictSelection() {
     console.log('showDistrictSelection 함수 호출됨'); // 디버깅용
@@ -345,8 +359,13 @@ function showDistrictModal(districtName) {
     const districtKoreanName = districtNames[districtName];
     const bakeries = districtBakeries[districtKoreanName];
     
-    // 제목 설정
-    document.getElementById('district-title').textContent = `${districtKoreanName} 빵집`;
+    // 카테고리 한글 매핑
+    const categoryMap = { popular: '인기', new: '새로운', special: '특별한' };
+    const categoryKo = categoryMap[selectedCategoryType] || '';
+    
+    // 제목 설정: "ㅇㅇ구의 ㅇㅇ 빵집"
+    const titleEl = document.getElementById('district-title');
+    titleEl.textContent = categoryKo ? `${districtKoreanName}의 ${categoryKo} 빵집` : `${districtKoreanName} 빵집`;
     
     // 빵집 리스트 채우기
     const popularList = document.getElementById('popular-bakeries');
@@ -358,26 +377,42 @@ function showDistrictModal(districtName) {
     newList.innerHTML = '';
     specialList.innerHTML = '';
     
-    // 인기 빵집 추가
-    bakeries.popular.forEach(bakery => {
-        const li = document.createElement('li');
-        li.textContent = bakery;
-        popularList.appendChild(li);
-    });
+    // 카테고리 컨테이너(부모) 요소
+    const popularWrap = popularList.closest('.bakery-category');
+    const newWrap = newList.closest('.bakery-category');
+    const specialWrap = specialList.closest('.bakery-category');
     
-    // 새로운 빵집 추가
-    bakeries.new.forEach(bakery => {
-        const li = document.createElement('li');
-        li.textContent = bakery;
-        newList.appendChild(li);
-    });
+    // 모두 숨김 후 선택된 카테고리만 보여줌
+    popularWrap.style.display = 'none';
+    newWrap.style.display = 'none';
+    specialWrap.style.display = 'none';
     
-    // 특별한 빵집 추가
-    bakeries.special.forEach(bakery => {
+    const fillList = (ulEl, items) => {
+      items.forEach(bakery => {
         const li = document.createElement('li');
         li.textContent = bakery;
-        specialList.appendChild(li);
-    });
+        ulEl.appendChild(li);
+      });
+    };
+    
+    if (selectedCategoryType === 'popular') {
+      fillList(popularList, bakeries.popular || []);
+      popularWrap.style.display = '';
+    } else if (selectedCategoryType === 'new') {
+      fillList(newList, bakeries.new || []);
+      newWrap.style.display = '';
+    } else if (selectedCategoryType === 'special') {
+      fillList(specialList, bakeries.special || []);
+      specialWrap.style.display = '';
+    } else {
+      // fallback: 세 카테고리 모두 노출
+      fillList(popularList, bakeries.popular || []);
+      fillList(newList, bakeries.new || []);
+      fillList(specialList, bakeries.special || []);
+      popularWrap.style.display = '';
+      newWrap.style.display = '';
+      specialWrap.style.display = '';
+    }
     
     // 모달 보여주기
     districtModal.classList.remove('hidden');
