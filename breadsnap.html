@@ -21,26 +21,14 @@
     
     <!-- 지도 컨테이너 -->
     <div id="map-container">
-        <!-- 범례 -->
-        <div class="legend">
-            <div class="legend-item">
-                <span class="icon">🥖</span>
-                <span>인기 빵집</span>
-            </div>
-            <div class="legend-item">
-                <span class="icon">🥐</span>
-                <span>새로운 빵집</span>
-            </div>
-            <div class="legend-item">
-                <span class="icon">🍇</span>
-                <span>특별한 빵집</span>
-            </div>
-            <!--
-            <div class="legend-item">
-                <span class="icon">☕</span>
-                <span>카페</span>
-            </div>-->
-        </div> 
+        
+        
+        <!-- 카테고리 버튼 (오른쪽 고정) -->
+        <div class="category-buttons">
+            <button class="cat-btn" data-category="popular">🥖 인기 빵집</button>
+            <button class="cat-btn" data-category="new">🥐 새로운 빵집</button>
+            <button class="cat-btn" data-category="special">🍇 특별한 빵집</button>
+        </div>
         
         <!-- 지도 영역 -->
         <div class="map-area" id="map-area">

@@ -286,27 +286,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// 범례 클릭 이벤트 추가
-document.addEventListener('DOMContentLoaded', function() {
-    const legend = document.querySelector('.legend');
-    console.log('범례 요소 찾기:', legend); // 디버깅용
-    
-    if (legend) {
-        legend.addEventListener('click', function() {
-            console.log('범례 클릭됨!'); // 디버깅용
-            // 구 선택 창 표시
-            showDistrictSelection();
-        });
-        
-        // 범례에 클릭 가능하다는 표시 추가
-        legend.style.cursor = 'pointer';
-        legend.title = '클릭하여 구별 빵집 보기';
-        
-        console.log('범례 이벤트 리스너 추가됨'); // 디버깅용
-    } else {
-        console.log('범례 요소를 찾을 수 없습니다!'); // 디버깅용
-    }
-});
+// 범례 관련 로직 제거됨
 
 // 구 선택 창 표시 함수
 function showDistrictSelection() {
