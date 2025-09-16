@@ -42,9 +42,31 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px 0;
-    font-size: 2.5rem;
+    margin: 0;
+    font-size: 2.0rem;
     font-weight: bold;
+    position: relative;
+    z-index: 5;
+}
+.logo::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px; /* 배너 높이 */
+    background: rgba(255, 255, 255, 0.465);
+    z-index: 0;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.logo .logo-inner {
+    position: relative;
+    padding: 10px 0; /* 배너 안에서 로고 수직 정렬 */
+}
+.logo .logo-inner .bread,
+.logo .logo-inner .snap {
+    position: relative;
+    z-index: 1;
 }
 
 .logo .bread {
@@ -171,7 +193,7 @@ h1 {
 .category-buttons {
     position: absolute;
     right: 24px;
-    top: 50%;
+    top: 55%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
@@ -181,11 +203,11 @@ h1 {
 .cat-btn {
     display: inline-block;
     padding: 14px 18px;
-    min-width: 180px;
+    min-width: 100px;
     text-align: left;
-    background: #ffffff;
+    background: #ffffffce;
     color: #8b4513;
-    border: 2px solid #ffffff;
+    border: 0px solid #ffffff;
     border-radius: 3px; /* 각진 모양 */
     font-size: 14px;
     font-weight: 700;
@@ -239,8 +261,8 @@ h1 {
 /* 캐릭터 */
 .character {
     position: fixed;
-    bottom: 60px;
-    right: 960px;
+    bottom: 50px;
+    right: 1000px;
     left: auto;
     font-size: 0;
     animation: none;
