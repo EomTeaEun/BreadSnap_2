@@ -324,14 +324,15 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #faf7f0;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(139, 69, 19, 0.3);
-    border: 3px solid #d2b48c;
+    background-color: #f4f0ec;
+    padding: 40px;
+    border-radius: 3px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    border: 0;
     z-index: 1000;
     min-width: 350px;
     max-width: 500px;
+    font-family: 'Nunito', sans-serif;
 }
 
 /* 구별 빵집 모달 */
@@ -346,6 +347,8 @@ h1 {
     color: #8b4513;
     margin-bottom: 25px;
     font-size: 1.8rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
 }
 
 .bakery-categories {
@@ -402,19 +405,22 @@ h1 {
 }
 
 .district-selection-content {
-    background-color: #faf7f0;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(139, 69, 19, 0.3);
-    border: 3px solid #d2b48c;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 3px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    border: 0;
     text-align: center;
     min-width: 400px;
+    font-family: 'Nunito', sans-serif;
 }
 
 .district-selection-content h2 {
     color: #8b4513;
     margin-bottom: 25px;
     font-size: 1.8rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
 }
 
 .district-buttons {
@@ -425,19 +431,22 @@ h1 {
 }
 
 .district-btn {
-    background-color: #d2b48c;
-    color: white;
-    border: none;
-    padding: 15px 20px;
-    border-radius: 15px;
-    font-size: 1rem;
+    background-color: #fff;
+    color: #8b4513;
+    border: 0;
+    padding: 20px 30px;
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .district-btn:hover {
-    background-color: #8b4513;
+    background-color: #c08c5b;
+    color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
@@ -452,6 +461,8 @@ h1 {
     color: #8b4513;
     margin-bottom: 25px;
     font-size: 1.5rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
 }
 
 .question-group {
@@ -463,6 +474,7 @@ h1 {
     margin-bottom: 10px;
     font-size: 1.1rem;
     font-weight: 600;
+    font-family: 'Nunito', sans-serif;
 }
 
 .button-group {
@@ -473,12 +485,14 @@ h1 {
 }
 
 .preference-btn {
-    background-color: #d2b48c;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 15px;
-    font-size: 0.9rem;
+    background-color: #fff;
+    color: #8b4513;
+    border: 0;
+    padding: 15px 25px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -486,7 +500,8 @@ h1 {
 }
 
 .preference-btn:hover {
-    background-color: #8b4513;
+    background-color: #c08c5b;
+    color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
@@ -497,18 +512,28 @@ h1 {
 
 .preference-btn.selected {
     background-color: #8b4513;
+    color: #fff;
     transform: scale(1.05);
     box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4);
 }
 
 .next-btn {
-    background-color: #a0a0a0;
+    background-color: #8b4513;
+    color: #fff;
+    border: 0;
+    padding: 15px 30px;
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
     margin-right: 10px;
     flex: 1;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .next-btn:hover:not(:disabled) {
-    background-color: #8b4513;
+    background-color: #c08c5b;
 }
 
 .next-btn.active {
@@ -522,12 +547,21 @@ h1 {
 }
 
 .close-btn {
-    background-color: #a0a0a0;
+    background-color: #8b4513;
+    color: #fff;
+    border: 0;
+    padding: 15px 30px;
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
     flex: 1;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .close-btn:hover {
-    background-color: #808080;
+    background-color: #c08c5b;
 }
 
 /* 결과 모달 내용 */
@@ -536,6 +570,8 @@ h1 {
     color: #8b4513;
     margin-bottom: 20px;
     font-size: 1.5rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
 }
 
 .result-content p {
@@ -557,12 +593,16 @@ h1 {
     color: #8b4513;
     margin-bottom: 10px;
     font-size: 1.2rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
 }
 
 .recommendation p {
     color: #8b4513;
     margin-bottom: 8px;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
 }
 
 /* 버튼 스타일 */
